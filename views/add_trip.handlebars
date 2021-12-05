@@ -1,0 +1,50 @@
+<main>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a href="/trips" class="btn">
+                        <button type="button" name="back_button" id="back_button" class="btn">
+                            <img src="/public/images/back_button.png" alt="back_button">
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><h1 class="center">New Trip</h1></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="row">
+    <div class="col-8">
+        <center>
+        <form action="/trips" method="POST">
+            <label>
+                Destination:
+                <input type="text" id="destination" name="destination" placeholder="Ex: Rome" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Start Date:
+                <input type="date" id="start_date" name="start_date" value="{{today}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                End Date:
+                <input type="date" id="end_date" name="end_date" value="{{tomorrow}}" class="form-control">
+            </label>
+            {{#if error}}
+            <p class="error">{{error}}</p>
+            {{/if}}
+            </center>
+            </div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-danger btn-lg mx-2">Create New Trip</button>
+            </div>
+</form>
+</main>
+        <footer class="footer mt-auto py-3 bg-danger">
+            <h2 class="text-center" style="color: azure;">Lets plan your vacation!</h2>
+        </footer>
+    

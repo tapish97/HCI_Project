@@ -1,0 +1,171 @@
+<main>
+    <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="/activities/{{trip_id}}">
+                        <button type="button" name="back_button" id="back_button" class="btn">
+                            <img src="/public/images/back_button.png" alt="back_button">
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><h1 class="center">Edit Activity</h1></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <form action="/activities/edit/{{trip_id}}/{{id}}/{{type}}" method="POST">
+        <center>
+            {{#if flight}}
+            <label>
+                Airline:
+                <input type="text" id="airline" name="airline" placeholder="Ex: United" value="{{flight.airline}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Departure:
+                <div class="input-group">
+                    <input type="date" id="departure_date" name="departure_date" value="{{flight.departure_date}}" class="form-control">
+                    <input type="text" id="departure_airport" name="departure_airport" placeholder="Airport" value="{{flight.departure_airport}}" class="form-control">
+                </div>
+                <div class="input-group">
+                    <input type="time" id="departure_time" name="departure_time" value="{{flight.departure_time}}" class="form-control">
+                    <input type="text" id="departure_time_zone" name="departure_time_zone" placeholder="Time Zone" value="{{flight.departure_time_zone}}" class="form-control">
+                </div>
+            </label>
+            <br><br>
+            <label>
+                Arrival:
+                <div class="input-group">
+                    <input type="date" id="arrival_date" name="arrival_date" value="{{flight.arrival_date}}" class="form-control">
+                    <input type="text" id="arrival_airport" name="arrival_airport" placeholder="Airport" value="{{flight.arrival_airport}}" class="form-control">
+                </div>
+                <div class="input-group">
+                    <input type="time" id="arrival_time" name="arrival_time" value="{{flight.arrival_time}}" class="form-control">
+                    <input type="text" id="arrival_time_zone" name="arrival_time_zone" placeholder="Time Zone" value="{{flight.arrival_time_zone}}" class="form-control">
+                </div>
+            </label>
+            <br><br>
+            <label>
+                Flight Number:
+                <input type="text" id="flight_number" name="flight_number" value="{{flight.flight_number}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Confirmation Number:
+                <input type="text" id="confirmation_number" name="confirmation_number" value="{{flight.confirmation_number}}" class="form-control">
+            </label>
+            <br><br>
+
+            {{else if hotel_stay}}
+            <label>
+                Hotel Name:
+                <input type="text" id="hotel_name" name="hotel_name" placeholder="Hilton" value="{{hotel_stay.hotel_name}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Start Date:
+                <input type="date" id="start_date" name="start_date" value="{{hotel_stay.start_date}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                End Date:
+                <input type="date" id="end_date" name="end_date" value="{{hotel_stay.end_date}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Address:
+                <input type="text" id="address" name="address" value="{{hotel_stay.address}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Confirmation Number:
+                <input type="text" id="confirmation_number" name="confirmation_number" value="{{hotel_stay.confirmation_number}}" class="form-control">
+            </label>
+            <br><br>
+
+            {{else if tour_event}}
+            <label>
+                Name:
+                <input type="text" id="name" name="name" value="{{tour_event.name}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Start Time:
+                <div class="input-group">
+                    <input type="date" id="start_date" name="start_date" value="{{tour_event.start_date}}" class="form-control">
+                    <input type="time" id="start_time" name="start_time" value="{{tour_event.start_time}}" class="form-control">
+                </div>
+            </label>
+            <br><br>
+            <label>
+                Address:
+                <input type="text" id="address" name="address" value="{{tour_event.address}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Confirmation Number:
+                <input type="text" id="confirmation_number" name="confirmation_number" value="{{tour_event.confirmation_number}}" class="form-control">
+            </label>
+            <br><br>
+
+            {{else if bus_boat}}
+            <label>
+                Company:
+                <input type="text" id="company" name="company" value="{{bus_boat.company}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Departure:
+                <div class="input-group">
+                    <input type="date" id="departure_date" name="departure_date" value="{{bus_boat.departure_date}}" class="form-control">
+                    <input type="time" id="departure_time" name="departure_time" value="{{bus_boat.departure_time}}" class="form-control">
+                </div>
+            </label>
+            <br><br>
+            <label>
+                Arrival:
+                <div class="input-group">
+                    <input type="date" id="arrival_date" name="arrival_date" value="{{bus_boat.arrival_date}}" class="form-control">
+                    <input type="time" id="arrival_time" name="arrival_time" value="{{bus_boat.arrival_time}}" class="form-control">
+                </div>
+            </label>
+            <br><br>
+            <label>
+                Number:
+                <input type="text" id="number" name="number" value="{{bus_boat.number}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Confirmation Number:
+                <input type="text" id="confirmation_number" name="confirmation_number" value="{{bus_boat.confirmation_number}}" class="form-control">
+            </label>
+            <br><br>
+            {{/if}}
+            {{#if error}}
+            <p class="error">{{error}}</p>
+            {{/if}}
+        </center>
+</main>
+        <footer class="footer mt-auto pt-3">
+            <div class="row">
+                <div class="col-6 bg-primary">
+                    <center>
+                    <div class="d-grid">
+                        <button type="submit" name="save_activity" id="save_activity" class="btn btn-primary btn-lg mx-2">Save Activity Changes</button>
+    </form>
+                    </div>
+                    </center>
+                </div>
+                <div class="col-6 bg-danger">
+                    <div class="d-grid">
+                        <form action="/activities/delete/{{trip_id}}/{{id}}" method="POST"> 
+                            <button type="submit" name="delete_activity" id="delete_activity" class="btn btn-danger btn-lg mx-2">Delete Activity</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
