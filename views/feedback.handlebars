@@ -1,0 +1,40 @@
+<main>
+    <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="/profile">
+                        <button type="button" name="back_button" id="back_button" class="btn">
+                            <img src="/public/images/back_button.png" alt="back_button">
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><h1 class="center">Send Feedback</h1></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <form action="/profile/feedback" method="POST">
+        <center>
+            <label>
+                Let us know what you like or dislike:
+                <textarea id="feedback" name="feedback" placeholder="Enter Some Feedback..." class="form-control" rows="5"></textarea>
+            </label>
+
+            {{#if error}}
+            <p class="error">{{error}}</p>
+            {{/if}}
+            {{#if success}}
+            <p class="success">{{success}}</p>
+            {{/if}}
+        </center>
+</main>
+            <footer class="footer mt-auto py-3 bg-primary">
+                <div class="d-grid">
+                    <button type="submit" name="send_feedback" id="send_feedback" class="btn btn-primary btn-lg mx-2">Send Feedback</button>
+                </div>
+            </footer>
+    </form>
+    

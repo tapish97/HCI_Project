@@ -1,0 +1,108 @@
+.index_body {
+  background-image: url("/public/images/background_image.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: 50%;
+  height: 100vh;
+}
+
+.index_title {
+  color: #b1340f;
+}
+
+.error {
+  margin-top: 10%;
+  color: red;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.success {
+  margin-top: 10%;
+  color: green;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+
+div.col-12 a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  margin: 0 20px;
+}
+.trip-info {
+  text-align: center;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: space-between;
+}
+.treeps {
+  color: antiquewhite;
+}
+a:hover {
+  color: black;
+  border: black;
+}
+.icon {
+  background: url("../images/travel.png");
+  height: 20px;
+  width: 20px;
+
+  /* Other styles here */
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}

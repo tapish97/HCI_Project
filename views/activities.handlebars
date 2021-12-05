@@ -1,0 +1,114 @@
+<main>
+    <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <a href="/trips" class="btn">
+                        <button type="button" name="back_button" id="back_button" class="btn">
+                            <img src="/public/images/back_button.png" alt="back_button">
+                        </button>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <h1 style="text-align: center;">Trip to {{trip.destination}}</h1>
+                    <p style="text-align: center;">{{trip.month}} {{trip.start_day}} - {{trip.end_day}} {{trip.year}}</p>
+                    
+                </div>
+                <div class="col-3">
+                    <a href="/trips/edit/{{trip.id}}">
+                        <button type="button" name="edit_trip" id="edit_trip" class="btn">
+                            <img src="/public/images/edit_button.png" alt="edit_trip">
+                        </button>
+                    </a>
+                </div>
+                <p style="text-align: center;">{{trip.flights}} Flights | {{trip.hotel_stays}} Hotel Stays | {{trip.activities}} Activities</p>
+            </div>
+        </div>
+    </nav>
+    {{#if selection_date_exists}}
+    <div class="row border">
+        <div class="col-12 my-2 mx-3">
+            <a href="/activities/{{trip.id}}/">
+                <button type="button" class="btn btn-primary btn-circle">All</button>
+            </a>
+            {{#each selection_date}}
+            <a href="/activities/{{../trip.id}}/{{this}}">
+                <button type="button" class="btn btn-primary btn-circle">{{this}}</button>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+    {{else}}
+    <br>
+    {{/if}}
+    <table class="table" id="sortThis">
+        {{#each activities}}
+        <tr>
+            {{#if flight}}
+            <td style="display: none;">{{info.departure_date}}</td>
+            {{else if hotel_stay}}
+            {{#if info.start_date}}
+            <td style="display: none;">{{info.start_date}}</td>
+            {{else if info.end_date}}
+            <td style="display: none;">{{info.end_date}}</td>
+            {{/if}}
+            {{else if tour_event}}
+            <td style="display: none;">{{info.start_date_time}}</td>
+            {{else if bus_boat}}
+            <td style="display: none;">{{info.depart_date_time}}</td>
+            {{/if}}
+            <td>
+                <a href="/activities/edit/{{../trip.id}}/{{id}}">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{{info.image_src}}" alt="type_icon">
+                        </div>
+                        <div class="col-9 border-start">
+                            {{#if flight}}
+                            <h1>{{info.departure_airport}} - {{info.arrival_airport}}</h1>
+                            <p>Departs: {{info.depart_date_time}}</p>
+                            <p>Arrives: {{info.arrives_date_time}}</p>
+                            <p>Flight {{info.flight_number}}</p>
+                            <p>Confirmation: {{info.confirmation_number}}</p>
+
+                            {{else if hotel_stay}}
+                            <h1>Stay at {{info.hotel_name}}</h1>
+                            {{#if info.start_date}}
+                            <p>Starts: {{info.start_date}}</p>
+                            {{else if info.end_date}}
+                            <p>Ends: {{info.end_date}}</p>
+                            {{/if}}
+                            <p>{{info.address}}</p>
+                            <p>Confirmation: {{info.confirmation_number}}</p>
+
+                            {{else if tour_event}}
+                            <h1>Tour of {{info.name}}</h1>
+                            <p>Starts: {{info.start_date_time}}</p>
+                            <p>{{info.address}}</p>
+                            <p>Confirmation: {{info.confirmation_number}}</p>
+
+                            {{else if bus_boat}}
+                            <h1>Ride from {{info.company}}</h1>
+                            <p>Departs: {{info.depart_date_time}}</p>
+                            <p>Arrives: {{info.arrives_date_time}}</p>
+                            <p>Number: {{info.number}}</p>
+                            <p>Confirmation: {{info.confirmation_number}}</p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</main>
+<footer class="footer mt-auto py-3 bg-primary">
+    <div class="d-grid">
+        <a href="/activities/add/{{trip._id}}/flight" class="btn btn-primary btn-lg mx-2">
+            <button type="button" name="add_new_activity" id="add_new_activity" class="btn btn-primary btn-lg mx-2">
+                <img src="/public/images/add_button.png" alt="add_trip">
+                Add New Activity
+            </button>
+        </a>
+    </div>
+</footer>

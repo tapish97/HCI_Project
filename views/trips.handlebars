@@ -1,0 +1,53 @@
+<main>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><h1>TREEPS</h1></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/profile" class="btn">
+                        <button type="button" name="profile" id="profile" class="btn"><img src="/public/images/profile_button.png" alt="profile_img"></button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="text-center">
+        <a href="/trips/add" >
+            <button type="button" class="btn btn-danger btn-lg mx-2 "name="add_new_trip" id="add_new_trip" class="btn btn-primary btn-lg mx-2">
+                <img src="/public/images/add_button.png" alt="add_trip">
+                Add New Trip
+            </button>
+        </a>
+    </div>
+    <br>
+    <div class="row">
+        
+            
+            {{#each trips}}
+            <div class="column">
+                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                    <p style="display: none;">{{month}}-{{start_day}}-{{year}}</td>
+                    <a href="/activities/{{_id}}" class="treeps">
+                    <div class="row">  
+                        <div class="trip-info">
+                            <span class="icon"></span>
+                            <img src="/public/images/travel.png" alt="travel"style="width:80px;height:80px;">
+                            <h2>Trip to {{destination}}</h2>
+                            <p>{{month}} {{start_day}} - {{end_day}} {{year}}</p>
+                            <p>{{flights}} Flights | {{hotel_stays}} Hotel Stays | {{activities}} Activities</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        <br>
+        {{/each}}
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-danger">
+    <h2 class="text-center" style="color: azure;">Lets plan your vacation!</h2>
+</footer>

@@ -1,0 +1,52 @@
+<main>
+    <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="/trips" class="btn">
+                        <button type="button" name="back_button" id="back_button" class="btn">
+                            <img src="/public/images/back_button.png" alt="back_button">
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><h1 class="center">My Profile</h1></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <form action="/profile" method="POST">
+        <center>
+            <label>
+                Change Username:
+                <input type="text" id="username" name="username" placeholder="Username" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Change Password:
+                <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Confirm Change Password:
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control">
+            </label>
+            <br><br>
+            <a href="/profile/feedback">Send Feedback</a>
+
+            {{#if error}}
+            <p class="error">{{error}}</p>
+            {{/if}}
+            {{#if success}}
+            <p class="text-success">{{success}}</p>
+            {{/if}}
+        </center>
+</main>
+            <footer class="footer mt-auto py-3 bg-primary">
+                <div class="d-grid">
+                    <button type="submit" name="save_changes" id="save_changes" class="btn btn-primary btn-lg mx-2">Save Changes</button>
+                </div>
+            </footer>
+    </form>
+    

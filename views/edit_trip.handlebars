@@ -1,0 +1,63 @@
+<main>
+    <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="/trips" class="btn">
+                        <button type="button" name="back_button" id="back_button" class="btn">
+                            <img src="/public/images/back_button.png" alt="back_button">
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><h1 class="center">Edit Trip</h1></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <form action="/trips/edit/{{id}}" method="POST">
+        <center>
+            {{#if trip}}
+            <label>
+                Destination:
+                <input type="text" id="destination" name="destination" placeholder="Ex: Rome" value="{{trip.destination}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                Start Date:
+                <input type="date" id="start_date" name="start_date" value="{{trip.startDate}}" class="form-control">
+            </label>
+            <br><br>
+            <label>
+                End Date:
+                <input type="date" id="end_date" name="end_date" value="{{trip.endDate}}" class="form-control">
+            </label>
+            <br><br>
+            {{/if}}
+
+            {{#if error}}
+            <p class="error">{{error}}</p>
+            {{/if}}
+        </center>
+</main>
+        <footer class="footer mt-auto pt-3">
+            <div class="row">
+                <div class="col-6 bg-primary">
+                    <center>
+                    <div class="d-grid">
+                        <button type="submit" name="edit_trip" id="edit_trip" class="btn btn-primary btn-lg mx-2">Save Changes</button>
+                    </div>
+    </form>
+                    </center>
+                </div>
+                <div class="col-6 bg-danger">
+                    <div class="d-grid">
+                        <form action="/trips/delete/{{id}}" method="POST">
+                            <button type="submit" name="delete_trip" id="delete_trip" class="btn btn-danger btn-lg mx-2">Delete Trip</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
