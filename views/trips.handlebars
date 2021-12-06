@@ -13,6 +13,9 @@
             </ul>
         </div>
     </nav>
+    {{#if user}}
+    <h2 style="margin-left: 14px;">Hello {{user}}!</h2>
+    {{/if}}
     <br>
     <div class="text-center">
         <a href="/trips/add" >
@@ -24,8 +27,6 @@
     </div>
     <br>
     <div class="row">
-        
-            
             {{#each trips}}
             <div class="column">
                 <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">

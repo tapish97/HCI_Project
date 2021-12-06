@@ -1,0 +1,70 @@
+<main>
+  <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
+    <div class="container-fluid">
+      <div class="navbar" style="width:20%">
+        <a href="/trips" class="btn">
+          <button type="button" name="back_button" id="back_button" class="btn">
+            <img src="/public/images/back_button.png" alt="back_button" />
+          </button>
+        </a>
+      </div>
+      <div class="nav-item"><h1 class="center">Create an account</h1></div>
+      <div style="width: 20%"></div>
+    </div>
+  </nav>
+  <form action="/profile" method="POST">
+    <center>
+      <label>
+        Username:
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          class="form-control"
+        />
+      </label>
+      <br /><br />
+      <label>
+        Password:
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          class="form-control"
+        />
+      </label>
+      <br /><br />
+      <label>
+        Confirm Password:
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          placeholder="Confirm Password"
+          class="form-control"
+        />
+      </label>
+      <br /><br />
+      <a href="/profile/feedback">Send Feedback</a>
+
+      {{#if error}}
+        <p class="error">{{error}}</p>
+      {{/if}}
+      {{#if success}}
+        <p class="text-success">{{success}}</p>
+      {{/if}}
+    </center>
+    </main>
+    <footer class="footer mt-auto py-3 bg-primary">
+      <div class="d-grid">
+        <button
+          type="submit"
+          name="save_changes"
+          id="save_changes"
+          class="btn btn-primary btn-lg mx-2"
+        >Submit</button>
+      </div>
+    </footer>
+  </form>

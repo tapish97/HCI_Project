@@ -1,22 +1,21 @@
 <main>
     <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
         <div class="container-fluid">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <div class="navbar" style="width:10%">
                     <a href="/trips" class="btn">
                         <button type="button" name="back_button" id="back_button" class="btn">
                             <img src="/public/images/back_button.png" alt="back_button">
                         </button>
                     </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><h1 class="center">My Profile</h1></li>
-            </ul>
+                </div>
+                <div class="nav-item"><h1 class="center">Update Account</h1></div>       
+                <form action="/profile/logout" method="POST" style="width: 10%;">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Out</button>      
+                </form> 
         </div>
     </nav>
     <br>
-    <form action="/profile" method="POST">
+    <form action="/profile" method="PATCH">
         <center>
             <label>
                 Change Username:
@@ -29,7 +28,7 @@
             </label>
             <br><br>
             <label>
-                Confirm Change Password:
+                Confirm New Password:
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control">
             </label>
             <br><br>
@@ -45,7 +44,7 @@
 </main>
             <footer class="footer mt-auto py-3 bg-primary">
                 <div class="d-grid">
-                    <button type="submit" name="save_changes" id="save_changes" class="btn btn-primary btn-lg mx-2">Save Changes</button>
+                    <button type="submit" name="save_changes" id="save_changes" class="btn btn-primary btn-lg mx-2">Submit</button>
                 </div>
             </footer>
     </form>

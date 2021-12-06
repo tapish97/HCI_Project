@@ -91,6 +91,12 @@ a:hover {
   /* Other styles here */
 }
 
+.nav-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
   .column {
