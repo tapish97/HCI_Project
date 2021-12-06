@@ -11,7 +11,7 @@
 }
 
 .error {
-  margin-top: 10%;
+  margin-top: 20px;
   color: red;
   background-color: white;
   border-radius: 10px;
@@ -81,7 +81,6 @@ body {
 }
 a:hover {
   color: black;
-  border: black;
 }
 .icon {
   background: url("../images/travel.png");

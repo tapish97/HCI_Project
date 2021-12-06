@@ -2,19 +2,19 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav nav-pills">
-                <li class="nav-item"><h1>TREEPS</h1></li>
+                <li class="nav-item"><h1 class="text-primary">TREEPS</h1></li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a href="/profile" class="btn">
-                        <button type="button" name="profile" id="profile" class="btn"><img src="/public/images/profile_button.png" alt="profile_img"></button>
+                        <button type="button" name="profile" id="profile" class="btn" style=""><img src="/public/images/profile_button.png" alt="profile_img"></button>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
     {{#if user}}
-    <h2 style="margin-left: 14px;">Hello {{user}}!</h2>
+    <h2 class="h2" style="margin-left: 14px;">Welcome, {{user}}</h2>
     {{/if}}
     <br>
     <div class="text-center">

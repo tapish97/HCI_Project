@@ -1,7 +1,7 @@
 <main>
     <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
         <div class="container-fluid">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto"  style="width: 10%">
                 <li class="nav-item">
                     <a href="/trips" class="btn">
                         <button type="button" name="back_button" id="back_button" class="btn">
@@ -13,6 +13,7 @@
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item"><h1 class="center">Edit Trip</h1></li>
             </ul>
+            <div style="width: 10%"/>
         </div>
     </nav>
     <br>
@@ -52,9 +53,9 @@
                     </center>
                 </div>
                 <div class="col-6 bg-danger">
-                    <div class="d-grid">
+                    <div class="d-grid" style="width: 100%">
                         <form action="/trips/delete/{{id}}" method="POST">
-                            <button type="submit" name="delete_trip" id="delete_trip" class="btn btn-danger btn-lg mx-2">Delete Trip</button>
+                            <button type="submit" name="delete_trip" id="delete_trip" class="btn btn-danger btn-lg mx-2" style="width: 100%">Delete Trip</button>
                         </form>
                     </div>
                 </div>

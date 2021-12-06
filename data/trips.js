@@ -15,7 +15,7 @@ const create = async (id, destination, startDate, endDate) => {
 
   let userList = await users();
   let user = await userList.findOne({ _id: ObjectId(id) });
-  if (user === null) throw "no user found";
+  if (user === null) throw "User not found";
 
   let theTrip = {
     _id: new ObjectId(),
@@ -34,7 +34,7 @@ const create = async (id, destination, startDate, endDate) => {
     { _id: ObjectId(id) },
     { $set: user }
   );
-  if (updatedInfo.modifiedCount === 0) throw "could not update book";
+  if (updatedInfo.modifiedCount === 0) throw "Error creating trip!";
 
   return true;
 };
@@ -47,7 +47,7 @@ const readAll = async (id) => {
 
   let userList = await users();
   let user = await userList.findOne({ _id: ObjectId(id) });
-  if (user === null) throw "no user found";
+  if (user === null) throw "User not found";
 
   return user.trips;
 };
@@ -65,7 +65,7 @@ const read = async (id, tripid) => {
 
   let userList = await users();
   let user = await userList.findOne({ _id: ObjectId(id) });
-  if (user === null) throw "no user found";
+  if (user === null) throw "User not found";
 
   let theTrip = [];
   for (let x in user.trips) {
@@ -93,7 +93,7 @@ const update = async (id, tripid, destination, startDate, endDate) => {
 
   let userList = await users();
   let user = await userList.findOne({ _id: ObjectId(id) });
-  if (user === null) throw "no user found";
+  if (user === null) throw "User not found";
 
   let theTrip = [];
   let tripIndex;
@@ -104,7 +104,9 @@ const update = async (id, tripid, destination, startDate, endDate) => {
     }
   }
   if (theTrip == []) throw "Could not find trip";
-
+  if (theTrip === { tripid, destination, startDate, endDate }) {
+    throw "Nothing to update!";
+  }
   theTrip.destination = destination;
   theTrip.startDate = startDate;
   theTrip.endDate = endDate;
@@ -114,7 +116,7 @@ const update = async (id, tripid, destination, startDate, endDate) => {
     { _id: ObjectId(id) },
     { $set: user }
   );
-  if (updatedInfo.modifiedCount === 0) throw "could not update book";
+  if (updatedInfo.modifiedCount === 0) throw "Error: Could not update trip!";
 
   return true;
 };
@@ -131,7 +133,7 @@ const remove = async (id, tripid) => {
 
   let userList = await users();
   let user = await userList.findOne({ _id: ObjectId(id) });
-  if (user === null) throw "no user found";
+  if (user === null) throw "Error: User not found for this trip!";
 
   let theTrip = [];
   let tripIndex;
@@ -149,7 +151,7 @@ const remove = async (id, tripid) => {
     { _id: ObjectId(id) },
     { $set: user }
   );
-  if (updatedInfo.modifiedCount === 0) throw "could not update book";
+  if (updatedInfo.modifiedCount === 0) throw "Error deleting trip!";
 
   return true;
 };

@@ -1,8 +1,6 @@
 <main>
-    <nav class="navbar navbar-light bg-light border-bottom border-1 border-dark">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-3">
+    <nav class="bg-light border-bottom border-1 border-dark" style="display: flex; flex-direction:row; justify-content: space-between">
+                <div style="width: 10%; display:flex; justify-content: flex-start;align-items:center;">
                     <a href="/trips" class="btn">
                         <button type="button" name="back_button" id="back_button" class="btn">
                             <img src="/public/images/back_button.png" alt="back_button">
@@ -12,18 +10,17 @@
                 <div class="col-6">
                     <h1 style="text-align: center;">Trip to {{trip.destination}}</h1>
                     <p style="text-align: center;">{{trip.month}} {{trip.start_day}} - {{trip.end_day}} {{trip.year}}</p>
-                    
+                    <p style="text-align: center;">{{trip.flights}} Flights | {{trip.hotel_stays}} Hotel Stays | {{trip.activities}} Activities</p>
                 </div>
-                <div class="col-3">
+                <div style="width: 10%; display:flex; justify-content: flex-end;align-items:center">
                     <a href="/trips/edit/{{trip.id}}">
                         <button type="button" name="edit_trip" id="edit_trip" class="btn">
                             <img src="/public/images/edit_button.png" alt="edit_trip">
+                            <p>Edit</p>
                         </button>
                     </a>
                 </div>
-                <p style="text-align: center;">{{trip.flights}} Flights | {{trip.hotel_stays}} Hotel Stays | {{trip.activities}} Activities</p>
-            </div>
-        </div>
+                
     </nav>
     {{#if selection_date_exists}}
     <div class="row border">
@@ -39,6 +36,9 @@
         </div>
     </div>
     {{else}}
+    {{#unless selection_date_exists}}
+        <h2 class="text-center text-primary" style="margin-top: 10%;">Add an activity to your trip by clicking the button below!</h2>
+    {{/unless}}
     <br>
     {{/if}}
     <table class="table" id="sortThis">
@@ -60,7 +60,7 @@
             <td>
                 <a href="/activities/edit/{{../trip.id}}/{{id}}">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-3" style="align-items: center; justify-content: center; display: flex;">
                             <img src="{{info.image_src}}" alt="type_icon">
                         </div>
                         <div class="col-9 border-start">
@@ -105,10 +105,12 @@
 <footer class="footer mt-auto py-3 bg-primary">
     <div class="d-grid">
         <a href="/activities/add/{{trip._id}}/flight" class="btn btn-primary btn-lg mx-2">
-            <button type="button" name="add_new_activity" id="add_new_activity" class="btn btn-primary btn-lg mx-2">
+                <div style="display: flex; justify-content:center; align-items:center;">
                 <img src="/public/images/add_button.png" alt="add_trip">
+                <p style="margin-bottom: 0px; margin-left: 8px;">
                 Add New Activity
-            </button>
+                </p>
+                </div>
         </a>
     </div>
 </footer>

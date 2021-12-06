@@ -143,10 +143,7 @@ router.post("/login", async (req, res) => {
     });
     return;
   }
-  res.render("update_profile", {
-    title: "Update Account",
-    success: `Logged in as: ${username}!`,
-  });
+  res.redirect("/trips");
 });
 
 module.exports = router;
