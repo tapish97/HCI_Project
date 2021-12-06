@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Seema Muchandi, Shubhangi Sharma, Michael Arrabito, Shivank Gupta, Tapish Chavan",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
