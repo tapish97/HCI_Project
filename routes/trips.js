@@ -52,6 +52,7 @@ router.get("/add", async (req, res) => {
     res.redirect("/");
     return;
   }
+  const selectedDestination = req.query?.destination;
   let todayDate = new Date();
   let todayYear = "" + todayDate.getFullYear();
   let todayMonth = todayDate.getMonth() + 1;
@@ -71,6 +72,7 @@ router.get("/add", async (req, res) => {
     title: "Add Trip",
     today: `${todayYear}-${todayMonth}-${todayDay}`,
     tomorrow: `${tomorrowYear}-${tomorrowMonth}-${tomorrowDay}`,
+    selectedDestination,
   });
 });
 
@@ -223,6 +225,48 @@ router.post("/delete/:id", async (req, res) => {
 
     res.render("edit_trip", paramObject);
   }
+});
+
+router.get("/explore", (req, res) => {
+  const locations = [
+    {
+      name: "New York",
+      img: "http://res.cloudinary.com/simpleview/image/upload/v1622206643/clients/newyorkstate/2000_x_797_web_hero_skyline_2_6b921811-cd45-42fd-990a-ba60c7fba1f0.jpg",
+    },
+    {
+      name: "Boston",
+      img: "https://www.planetware.com/wpimages/2019/11/usa-east-coast-best-places-to-visit-boston.jpg",
+    },
+    {
+      name: "Miami",
+      img: "https://www.miamiandbeaches.com/getmedia/e48d2172-87f7-4bcb-b19e-bb65b13b0592/South-Beach-Fisher-Island-aerial-1440x900.jpg.aspx?width=1440&height=900&ext=.jpg",
+    },
+    {
+      name: "Washington, D.C.",
+      img: "https://www.thoughtco.com/thmb/JGE_xQpUmHb6oan75GMw0D4ensc=/2119x1415/filters:fill(auto,1)/GettyImages-497322993-598b2ad403f4020010ae0a08.jpg",
+    },
+    {
+      name: "Baltimore",
+      img: "https://media-cdn.tripadvisor.com/media/photo-s/02/35/45/08/filename-evening-panorama.jpg",
+    },
+    {
+      name: "Philadelphia",
+      img: "https://a.cdn-hotels.com/gdcs/production177/d1365/44d7e259-789c-4b61-b83e-388fcda258c0.jpg",
+    },
+    {
+      name: "Orlando",
+      img: "https://www.planetware.com/wpimages/2019/11/usa-east-coast-best-places-to-visit-orlando-florida.jpg",
+    },
+    {
+      name: "Niagara Falls",
+      img: "https://www.planetware.com/wpimages/2019/11/usa-east-coast-best-places-to-visit-niagara-falls-new-york.jpg",
+    },
+  ];
+  return res.render("explore", {
+    title: "Explore",
+    userLocation: "Eastern United States",
+    locations,
+  });
 });
 
 module.exports = router;

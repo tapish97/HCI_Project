@@ -3,7 +3,7 @@
                 <div style="width: 10%; display:flex; justify-content: flex-start;align-items:center;">
                     <a href="/trips" class="btn">
                         <button type="button" name="back_button" id="back_button" class="btn">
-                            <img src="/public/images/back_button.png" alt="back_button">
+                            <img src="/public/images/back-button.png" alt="Back Button">
                         </button>
                     </a>
                 </div>
@@ -13,9 +13,9 @@
                     <p style="text-align: center;">{{trip.flights}} Flights | {{trip.hotel_stays}} Hotel Stays | {{trip.activities}} Activities</p>
                 </div>
                 <div style="width: 10%; display:flex; justify-content: flex-end;align-items:center">
-                    <a href="/trips/edit/{{trip.id}}">
-                        <button type="button" name="edit_trip" id="edit_trip" class="btn">
-                            <img src="/public/images/edit_button.png" alt="edit_trip">
+                            <a href="/trips/edit/{{trip.id}}">
+                        <button type="button" style="text-align: center;" name="edit_trip" id="edit_trip" class="btn">
+                            <img src="/public/images/edit.png" alt="Edit Trip">
                             <p>Edit</p>
                         </button>
                     </a>
@@ -37,7 +37,10 @@
     </div>
     {{else}}
     {{#unless selection_date_exists}}
-        <h2 class="text-center text-primary" style="margin-top: 10%;">Add an activity to your trip by clicking the button below!</h2>
+        <h2 class="text_activity">Add an activity to your trip by clicking the button below!
+            <br> Here you will be able to update any activities related to 
+            <br> your trips which will be helpful for future reference!
+        </h2>
     {{/unless}}
     <br>
     {{/if}}
@@ -101,10 +104,8 @@
         </tr>
         {{/each}}
     </table>
-</main>
-<footer class="footer mt-auto py-3 bg-primary">
-    <div class="d-grid">
-        <a href="/activities/add/{{trip._id}}/flight" class="btn btn-primary btn-lg mx-2">
+    <div class "container" style="text-align:center;">
+    <a href="/activities/add/{{trip._id}}/flight" class="btn btn-danger btn-lg mx-2" style="text-align: center;">
                 <div style="display: flex; justify-content:center; align-items:center;">
                 <img src="/public/images/add_button.png" alt="add_trip">
                 <p style="margin-bottom: 0px; margin-left: 8px;">
@@ -113,4 +114,9 @@
                 </div>
         </a>
     </div>
+</main>
+<br>
+<br>
+<footer class="footer mt-auto bg-danger">
+    <h2 class="text-center" style="color: azure;">Lets plan your vacation!</h2>
 </footer>

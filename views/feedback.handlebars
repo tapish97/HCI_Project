@@ -5,7 +5,7 @@
                 <li class="nav-item">
                     <a href="/profile">
                         <button type="button" name="back_button" id="back_button" class="btn">
-                            <img src="/public/images/back_button.png" alt="back_button">
+                            <img src="/public/images/back-button.png" alt="back_button">
                         </button>
                     </a>
                 </li>
@@ -19,7 +19,7 @@
     <form action="/profile/feedback" method="POST">
         <center>
             <label>
-                Let us know what you like or dislike:
+                Please, help us know what you liked or disliked on your trip:
                 <textarea id="feedback" name="feedback" placeholder="Enter Some Feedback..." class="form-control" rows="5"></textarea>
             </label>
 
@@ -29,12 +29,11 @@
             {{#if success}}
             <p class="success">{{success}}</p>
             {{/if}}
+            <button type="submit" name="send_feedback" id="send_feedback" class="btn btn-danger mx-2">Send Feedback</button>
         </center>
+        </form>
 </main>
-            <footer class="footer mt-auto py-3 bg-primary">
-                <div class="d-grid">
-                    <button type="submit" name="send_feedback" id="send_feedback" class="btn btn-primary btn-lg mx-2">Send Feedback</button>
-                </div>
+            <footer class="footer mt-auto bg-danger">
             </footer>
-    </form>
+    
     

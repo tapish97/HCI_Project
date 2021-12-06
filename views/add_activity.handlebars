@@ -5,7 +5,7 @@
                 <li class="nav-item">
                     <a href="/activities/{{trip_id}}" class="btn">
                         <button type="button" name="back_button" id="back_button" class="btn">
-                            <img src="/public/images/back_button.png" alt="back_button">
+                            <img src="/public/images/back-button.png" alt="Back Button">
                         </button>
                     </a>
                 </li>
@@ -17,43 +17,43 @@
         </div>
     </nav>
     <br>
-    <center>
-        <div class="btn-group" role="group">
-            <a href="/activities/add/{{trip_id}}/flight" class="btn-group">
+        
+        <div  class="tab">
+            <a href="/activities/add/{{trip_id}}/flight" class="tablinks">
                 {{#if flight}}
-                <button type="button" name="flight" id="flight" class="btn btn-primary active">Flight</button>
+                <button type="button" name="flight" id="flight" class="btn btn-danger active" style="color: crimson;">Flight</button>
                 {{else}}
-                <button type="button" name="flight" id="flight" class="btn btn-primary">Flight</button>
+                <button type="button" name="flight" id="flight" class="btn btn-danger" style="color: black;">Flight</button>
                 {{/if}}
             </a>
 
-            <a href="/activities/add/{{trip_id}}/hotel_stay" class="btn-group">
+            <a href="/activities/add/{{trip_id}}/hotel_stay"class="tablinks">
                 {{#if hotel_stay}}
-                <button type="button" name="hotel_stay" id="hotel_stay" class="btn btn-primary active">Hotel Stay</button>
+                <button type="button" name="hotel_stay" id="hotel_stay" class="btn btn-danger active"style="color: crimson;">Hotel Stay</button>
                 {{else}}
-                <button type="button" name="hotel_stay" id="hotel_stay" class="btn btn-primary">Hotel Stay</button>
+                <button type="button" name="hotel_stay" id="hotel_stay" class="btn btn-danger "style="color: black;">Hotel Stay</button>
                 {{/if}}
             </a>
 
-            <a href="/activities/add/{{trip_id}}/tour_event" class="btn-group">
+            <a href="/activities/add/{{trip_id}}/tour_event"class="tablinks">
                 {{#if tour_event}}
-                <button type="button" name="tour_event" id="tour_event" class="btn btn-primary active">Tour/Event</button>
+                <button type="button" name="tour_event" id="tour_event" class="btn btn-danger active"style="color: crimson;">Tour/Event</button>
                 {{else}}
-                <button type="button" name="tour_event" id="tour_event" class="btn btn-primary">Tour/Event</button>
+                <button type="button" name="tour_event" id="tour_event" class="btn btn-danger"style="color: black;">Tour/Event</button>
                 {{/if}}
             </a>
 
-            <a href="/activities/add/{{trip_id}}/bus_boat" class="btn-group">
+            <a href="/activities/add/{{trip_id}}/bus_boat" class="tablinks">
                 {{#if bus_boat}}
-                <button type="button" name="bus_boat" id="bus_boat" class="btn btn-primary active">Bus/Boat</button>
+                <button type="button" name="bus_boat" id="bus_boat" class="btn btn-danger active"style="color: crimson;">Bus/Boat</button>
                 {{else}}
-                <button type="button" name="bus_boat" id="bus_boat" class="btn btn-primary">Bus/Boat</button>
+                <button type="button" name="bus_boat" id="bus_boat" class="btn btn-danger"style="color: black;">Bus/Boat</button>
                 {{/if}}
             </a>
         </div>
-        <br><br>
+        <div style="text-align: center;">
         {{#if flight}}
-            <form action="/activities/{{trip_id}}/flight" method="POST">
+            <form action="/activities/{{trip_id}}/flight" method="POST" class="tabcontent">
                 <label>
                     Airline:
                     <input type="text" id="airline" name="airline" placeholder="Ex: United" class="form-control">
@@ -94,7 +94,7 @@
                 </label>
 
         {{else if hotel_stay}}
-            <form action="/activities/{{trip_id}}/hotel_stay" method="POST">
+            <form action="/activities/{{trip_id}}/hotel_stay" method="POST"class="tabcontent">
                 <label>
                     Hotel Name:
                     <input type="text" id="hotel_name" name="hotel_name" placeholder="Ex: Hilton" class="form-control">
@@ -121,7 +121,7 @@
                 </label>
 
         {{else if tour_event}}
-            <form action="/activities/{{trip_id}}/tour_event" method="POST">
+            <form action="/activities/{{trip_id}}/tour_event" method="POST"class="tabcontent">
                 <label>
                     Name:
                     <input type="text" id="name" name="name" class="form-control">
@@ -146,7 +146,7 @@
                 </label>
 
         {{else if bus_boat}}
-            <form action="/activities/{{trip_id}}/bus_boat" method="POST">
+            <form action="/activities/{{trip_id}}/bus_boat" method="POST"class="tabcontent">
                 <label>
                     Company:
                     <input type="text" id="company" name="company" class="form-control">
@@ -181,12 +181,11 @@
         {{#if error}}
         <p class="error">{{error}}</p>
         {{/if}}
-    </center>
+        <br><br>
+    <button type="submit" name="add_activity" id="add_activity" class="btn btn-danger">Add Activity</button>
+    </form>
+    </div>
+                
 </main>
-            <footer class="footer mt-auto py-3 bg-primary">
-                <div class="d-grid">
-                    <button type="submit" name="add_activity" id="add_activity" class="btn btn-primary btn-lg mx-2">Add Activity</button>
-                </div>
-            </footer>
-        </form>
+
     

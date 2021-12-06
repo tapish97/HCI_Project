@@ -4,12 +4,12 @@
       <div class="navbar" style="width:15%">
         <a href="/trips" class="btn">
           <button type="button" name="back_button" id="back_button" class="btn">
-            <img src="/public/images/back_button.png" alt="back_button" />
+            <img src="/public/images/back-button.png" alt="back_button" />
           </button>
         </a>
       </div>
-      <div class="nav-item"><h1 class="center">Login</h1></div>
-      <a href="/profile/new" style="width: 15%"><button type="submit" class="btn btn-primary" style="width: 100%;">New Account</button></a>
+      <div class="nav-item"><h1 class="center">User Login</h1></div>
+      <a href="/profile/new" style="width: 15%"><button type="submit" class="btn btn-primary" style="width: 100%;">Create New Account</button></a>
     </div>
   </nav>
   <form action="/profile/login" method="POST">
@@ -37,7 +37,13 @@
       </label>
       <br /><br />
       <br /><br />
-      <a href="/profile/feedback">Send Feedback</a>
+      <button
+          type="submit"
+          name="save_changes"
+          id="save_changes"
+          class="btn btn-primary btn-lg mx-2"
+        >Submit</button>
+
       {{#if error}}
         <p class="error">{{error}}</p>
       {{/if}}
@@ -46,14 +52,10 @@
       {{/if}}
     </center>
     </main>
-    <footer class="footer mt-auto py-3 bg-primary">
-      <div class="d-grid">
-        <button
-          type="submit"
-          name="save_changes"
-          id="save_changes"
-          class="btn btn-primary btn-lg mx-2"
-        >Submit</button>
+    <footer class="footer">
+      <div>
+        <br> <br> <br> <br> <br> 
+        {{!-- <a href="/profile/feedback">Send Feedback</a> --}}
       </div>
     </footer>
   </form>

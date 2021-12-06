@@ -5,13 +5,13 @@
                 <li class="nav-item">
                     <a href="/activities/{{trip_id}}">
                         <button type="button" name="back_button" id="back_button" class="btn">
-                            <img src="/public/images/back_button.png" alt="back_button">
+                            <img src="/public/images/back-button.png" alt="back_button">
                         </button>
                     </a>
                 </li>
             </ul>
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><h1 class="center">Edit Activity</h1></li>
+                <li class="nav-item"><h1 class="center">Edit your Activity</h1></li>
             </ul>
             <div style="width: 10%;" />
         </div>
@@ -21,7 +21,7 @@
         <center>
             {{#if flight}}
             <label>
-                Airline:
+                Airlines:
                 <input type="text" id="airline" name="airline" placeholder="Ex: United" value="{{flight.airline}}" class="form-control">
             </label>
             <br><br>
@@ -163,7 +163,7 @@
                 <div class="col-6 bg-danger">
                     <div class="d-grid" style="width: 100%">
                         <form action="/activities/delete/{{trip_id}}/{{id}}" method="POST"> 
-                            <button type="submit" name="delete_activity" id="delete_activity" class="btn btn-danger btn-lg mx-2" style="width: 100%">Delete Activity</button>
+                            <button type="submit" name="delete_activity" id="delete_activity" class="btn btn-danger btn-lg mx-2" style="width: 100%">Delete your Activity</button>
                         </form>
                     </div>
                 </div>

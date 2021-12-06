@@ -5,7 +5,7 @@
                 <li class="nav-item">
                     <a href="/trips" class="btn">
                         <button type="button" name="back_button" id="back_button" class="btn">
-                            <img src="/public/images/back_button.png" alt="back_button">
+                            <img src="/public/images/back-button.png" alt="back_button">
                         </button>
                     </a>
                 </li>
@@ -23,7 +23,7 @@
         <form action="/trips" method="POST">
             <label>
                 Destination:
-                <input type="text" id="destination" name="destination" placeholder="Ex: Rome" class="form-control">
+                <input type="text" id="destination" name="destination" placeholder="Ex: Rome" class="form-control" value="{{selectedDestination}}">
             </label>
             <br><br>
             <label>
@@ -45,7 +45,7 @@
             </div>
 </form>
 </main>
-        <footer class="footer mt-auto py-3 bg-danger">
+        <footer class="footer mt-auto bg-danger">
             <h2 class="text-center" style="color: azure;">Lets plan your vacation!</h2>
         </footer>
     
