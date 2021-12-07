@@ -1,0 +1,32 @@
+<div>
+  <div style="display: flex; justify-content:space-between; align-items:center">
+    <a href="/trips" class="btn" style="width: 5%;">
+      <button type="button" name="back_button" id="back_button" class="btn">
+        <img src="/public/images/back-button.png" alt="Back Button" />
+      </button>
+    </a>
+    <h1>Review for {{destination}}</h1>
+    <div style="width: 5%;"></div>
+  </div>
+  <div class="text-center">
+    <form method="POST" action="/trips/review">
+      <label for="reviewText">Review Description</label>
+      <br />
+      <textarea
+        class="form-control form-control-sm"
+        rows="5"
+        id="reviewText"
+        name="reviewText"
+        type="text"
+      ></textarea>
+      <br />
+      <br />
+      <label for="recommended">Would you recommend others to travel here?</label>
+      <input type="checkbox" name="recommended" id="recommended" />
+      <br />
+      <input id="tripId" name="tripId" hidden value="{{tripId}}" />
+      <br />
+      <button class="btn-primary" type="submit">Submit Review</button>
+    </form>
+  </div>
+</div>

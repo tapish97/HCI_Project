@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const tripData = require("../data/trips");
+const reviewData = require("../data/reviews");
 
 router.get("/", async (req, res) => {
   if (!req.session.user) {
@@ -267,6 +268,36 @@ router.get("/explore", (req, res) => {
     userLocation: "Eastern United States",
     locations,
   });
+});
+
+router.get("/review", async (req, res) => {
+  const { destination, tripId } = req.query;
+
+  return res.render("review", { title: "Review", destination, tripId });
+});
+
+router.post("/review", async (req, res) => {
+  if (!req.session.user) {
+    res.redirect("/");
+    return;
+  }
+  let { reviewText, tripId, recommended } = req.body;
+  if (recommended == null) {
+    recommended = false;
+  } else {
+    recommended = true;
+  }
+  if (reviewText.trim() === "" || !tripId) {
+    res.redirect("/");
+  }
+  await reviewData.createTripReview(
+    tripId,
+    req.session.user._id,
+    reviewText,
+    recommended
+  );
+  res.redirect(`/activities/${tripId}`);
+  return;
 });
 
 module.exports = router;

@@ -22,6 +22,13 @@
                 </div>
                 
     </nav>
+    {{#if review}}
+        <div class="text-center text-primary"><p>Your posted review for {{trip.destination}}: {{review.reviewText}}</p></div>
+
+    {{/if}}
+    {{#unless review}}
+    <div class="text-center"><a href="/trips/review?destination={{trip.destination}}&tripId={{trip.id}}"><p>Add your review for {{trip.destination}}</p></a></div>
+    {{/unless}}
     {{#if selection_date_exists}}
     <div class="row border">
         <div class="col-12 my-2 mx-3">

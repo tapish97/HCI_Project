@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const tripData = require("../data/trips");
 const activityData = require("../data/activities");
+const reviewData = require("../data/reviews");
 
 router.get("/:tripid", async (req, res) => {
   if (!req.session.user) {
@@ -12,6 +13,7 @@ router.get("/:tripid", async (req, res) => {
   let theActivities = await activityData.readAll(req.session.user._id, tripId);
   let selectionDates = [];
   let selectionDatesExists = true;
+  const reviews = await reviewData.getReviewsForTrip(tripId);
   if (theActivities.length == 0 || theActivities == null) {
     selectionDatesExists = false;
   }
@@ -98,6 +100,8 @@ router.get("/:tripid", async (req, res) => {
     script: "activities",
     selection_date: selectionDates,
     selection_date_exists: selectionDatesExists,
+    tripId,
+    review: reviews[0],
   });
 });
 
