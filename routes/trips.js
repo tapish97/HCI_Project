@@ -197,7 +197,7 @@ router.post("/delete/:id", async (req, res) => {
   let tripid = req.params.id;
   try {
     let deleted = await tripData.remove(req.session.user._id, tripid);
-
+    await reviewData.removeReviewsForTrip(tripid);
     if (deleted) {
       req.session.user.trips = await tripData.readAll(req.session.user._id);
       res.redirect("/trips");

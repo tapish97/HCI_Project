@@ -12,13 +12,17 @@
     <form method="POST" action="/trips/review">
       <label for="reviewText">Review Description</label>
       <br />
-      <textarea
-        class="form-control form-control-sm"
-        rows="5"
-        id="reviewText"
-        name="reviewText"
-        type="text"
-      ></textarea>
+      <div style="display: flex; justify-content: center">
+        <div style="width: 60%;">
+          <textarea
+            class="form-control form-control-sm"
+            rows="5"
+            id="reviewText"
+            name="reviewText"
+            type="text"
+          ></textarea>
+        </div>
+      </div>
       <br />
       <br />
       <label for="recommended">Would you recommend others to travel here?</label>

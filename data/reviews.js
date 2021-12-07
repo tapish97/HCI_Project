@@ -26,4 +26,13 @@ const getReviewsForTrip = async (tripId) => {
   return reviewsForTrip;
 };
 
-module.exports = { createTripReview, getReviewsForTrip };
+const removeReviewsForTrip = async (tripId) => {
+  if (!ObjectId.isValid(tripId)) {
+    throw new Error("Invalid trip id");
+  }
+  const reviewDb = await reviews();
+  const remove = await reviewDb.remove({ tripId });
+  return remove;
+};
+
+module.exports = { createTripReview, getReviewsForTrip, removeReviewsForTrip };
